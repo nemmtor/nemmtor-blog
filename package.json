@@ -17,9 +17,14 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@ronilaukkarinen/stylelint-a11y": "^1.2.4",
     "commitizen": "^4.2.4",
     "husky": "^8.0.1",
     "prettier": "latest",
+    "stylelint": "^14.8.2",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "turbo": "latest"
   },
   "engines": {
