@@ -25,11 +25,11 @@
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
-    "turbo": "latest"
+    "turbo": "^1.2.3"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.1.0"
+  "packageManager": "yarn@1.22.18"
 }
