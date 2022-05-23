@@ -1,6 +1,6 @@
 {
   "eslint.workingDirectories": [
-    { "directory": "./apps/landing-page", "changeProcessCWD": true },
-    { "directory": "./packages/ui", "changeProcessCWD": true }
+    { "directory": "./apps/landing-page" },
+    { "directory": "./packages/ui" }
   ]
 }
