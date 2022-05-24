@@ -51,4 +51,23 @@ module.exports = {
     'arrow-body-style': 'off',
     'prettier/prettier': 'error',
   },
+  overrides: [
+    {
+      env: {
+        jest: true,
+      },
+      files: ['**/?(*.)+(test).ts?(x)'],
+      extends: [
+        'plugin:testing-library/react',
+        'plugin:jest/recommended',
+        'plugin:jest-formatting/recommended',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': [
+          'off',
+          { devDependencies: ['**/?(*.)+test.ts?(x)'] },
+        ],
+      },
+    },
+  ],
 };
