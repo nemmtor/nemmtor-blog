@@ -24,6 +24,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-storybook": "^0.5.12",
     "eslint-plugin-testing-library": "^5.5.1"
   }
 }
