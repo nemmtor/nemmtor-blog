@@ -50,6 +50,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
     'prettier/prettier': 'error',
+    'react/jsx-props-no-spreading': 'off',
   },
   overrides: [
     {
@@ -63,10 +64,14 @@ module.exports = {
         'plugin:jest-formatting/recommended',
       ],
       rules: {
-        'import/no-extraneous-dependencies': [
-          'off',
-          { devDependencies: ['**/?(*.)+test.ts?(x)'] },
-        ],
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      extends: ['plugin:storybook/recommended'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
       },
     },
   ],
