@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "jest --coverage",
-    "build:docker": "cd ../../ && docker build . -f infrastructure/docker/Dockerfile -t landing-page:latest --build-arg SCOPE=landing-page"
+    "build:docker": "cd ../../ && docker build . -f ./Dockerfile -t landing-page:latest --build-arg SCOPE=landing-page"
   },
   "dependencies": {
     "next": "12.1.6",

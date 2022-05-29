@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "build:docker": "turbo run build:docker",
     "dev": "turbo run dev --parallel",
-    "dev:docker": "cd infrastructure/docker && docker compose up -d",
+    "dev:docker": "docker compose up -d",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
