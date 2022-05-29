@@ -1,0 +1,15 @@
+version: '3'
+services:
+  landing-page:
+    build:
+      dockerfile: ./apps/landing-page/Dockerfile
+      args:
+        SCOPE: landing-page
+      target: dev-deps
+    command: [ "yarn", "dev" ]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app/
+      - /app/node_modules/
+    restart: on-failure
