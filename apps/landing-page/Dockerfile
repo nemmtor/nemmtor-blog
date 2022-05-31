@@ -16,7 +16,9 @@ COPY --from=pruner /app/out/yarn.lock ./yarn.lock
 RUN yarn install --frozen-lockfile
 
 FROM base AS dev
-COPY --from=dev-deps /app/ .
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/yarn.lock ./yarn.lock
+COPY --from=dev-deps /app/node_modules ./node_modules
 COPY --from=pruner /app/out/full/ .
 
 FROM base AS prod-deps
