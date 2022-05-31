@@ -14,3 +14,16 @@ services:
       - ./packages/ui/src:/app/packages/ui/src
       - /app/node_modules/
     restart: on-failure
+  cms:
+    build:
+      dockerfile: ./apps/cms/Dockerfile
+      args:
+        SCOPE: cms
+      target: dev
+    command: [ "yarn", "workspace", "cms", "dev" ]
+    ports:
+      - "1337:1337"
+    volumes:
+      - ./apps/cms/src:/app/apps/cms/src
+      - /app/node_modules/
+    restart: on-failure
