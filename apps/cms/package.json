@@ -7,7 +7,8 @@
     "dev": "strapi develop",
     "build": "strapi build",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "build:docker": "cd ../../ && docker build . -f ./apps/cms/Dockerfile -t cms:latest --build-arg SCOPE=cms"
   },
   "devDependencies": {},
   "dependencies": {
