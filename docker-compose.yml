@@ -11,6 +11,6 @@ services:
       - "3000:3000"
     volumes:
       - ./apps/landing-page/src:/app/apps/landing-page/src
-      - ./packages/ui/components:/app/packages/ui/components
+      - ./packages/ui/src:/app/packages/ui/src
       - /app/node_modules/
     restart: on-failure
