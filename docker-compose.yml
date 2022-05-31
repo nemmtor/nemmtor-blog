@@ -5,11 +5,12 @@ services:
       dockerfile: ./apps/landing-page/Dockerfile
       args:
         SCOPE: landing-page
-      target: dev-deps
-    command: [ "yarn", "dev" ]
+      target: dev
+    command: [ "yarn", "workspace", "landing-page", "dev" ]
     ports:
       - "3000:3000"
     volumes:
-      - ./:/app/
+      - ./apps/landing-page/src:/app/apps/landing-page/src
+      - ./packages/ui/components:/app/packages/ui/components
       - /app/node_modules/
     restart: on-failure
