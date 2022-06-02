@@ -1,0 +1,49 @@
+image: node:16
+
+pipelines:
+    default:
+        - step:
+            name: Build
+            caches:
+              - nodeall
+              - nodelandingpage
+              - nodecms
+              - nodeconfig
+              - nodeui
+              - yarn
+            script:
+                - yarn
+                - yarn build
+        - step:
+            name: Lint
+            caches:
+              - nodeall
+              - nodelandingpage
+              - nodecms
+              - nodeconfig
+              - nodeui
+              - yarn
+            script:
+                - yarn
+                - yarn lint
+        - step:
+            name: Lint
+            caches:
+              - nodeall
+              - nodelandingpage
+              - nodecms
+              - nodeconfig
+              - nodeui
+              - yarn
+            script:
+                - yarn
+                - yarn test
+
+definitions:
+  caches:
+    nodeall: ./node_modules
+    nodelandingpage: ./apps/landing-page/node_modules
+    nodecms: ./apps/cms/node_modules
+    nodeconfig: ./packages/config/node_modules
+    nodeui: ./packages/ui/node_modules
+    yarn: /usr/local/share/.cache/yarn
