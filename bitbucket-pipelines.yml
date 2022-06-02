@@ -3,7 +3,6 @@ image: node:16
 definitions:
   steps:
     - step: &setup-cache
-        name: Build and test
         caches:
           - nodeall
           - nodelandingpage
