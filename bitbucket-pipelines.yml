@@ -1,43 +1,45 @@
 image: node:16
 
+
 pipelines:
     default:
-        - step:
-            name: Build
-            caches:
-              - nodeall
-              - nodelandingpage
-              - nodecms
-              - nodeconfig
-              - nodeui
-              - yarn
-            script:
+        - parallel:
+          - step:
+              name: Build
+              caches:
+                - nodeall
+                - nodelandingpage
+                - nodecms
+                - nodeconfig
+                - nodeui
                 - yarn
-                - yarn build
-        - step:
-            name: Lint
-            caches:
-              - nodeall
-              - nodelandingpage
-              - nodecms
-              - nodeconfig
-              - nodeui
-              - yarn
-            script:
+              script:
+                  - yarn
+                  - yarn build
+          - step:
+              name: Lint
+              caches:
+                - nodeall
+                - nodelandingpage
+                - nodecms
+                - nodeconfig
+                - nodeui
                 - yarn
-                - yarn lint
-        - step:
-            name: Lint
-            caches:
-              - nodeall
-              - nodelandingpage
-              - nodecms
-              - nodeconfig
-              - nodeui
-              - yarn
-            script:
+              script:
+                  - yarn
+                  - yarn lint
+          - step:
+              name: Test
+              caches:
+                - nodeall
+                - nodelandingpage
+                - nodecms
+                - nodeconfig
+                - nodeui
                 - yarn
-                - yarn test
+              script:
+                  - yarn
+                  - yarn test
 
 definitions:
   caches:
