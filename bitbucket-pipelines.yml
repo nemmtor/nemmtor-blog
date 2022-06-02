@@ -1,47 +1,16 @@
 image: node:16
 
-
-pipelines:
-    default:
-        - parallel:
-          - step:
-              name: Build
-              caches:
-                - nodeall
-                - nodelandingpage
-                - nodecms
-                - nodeconfig
-                - nodeui
-                - yarn
-              script:
-                  - yarn
-                  - yarn build
-          - step:
-              name: Lint
-              caches:
-                - nodeall
-                - nodelandingpage
-                - nodecms
-                - nodeconfig
-                - nodeui
-                - yarn
-              script:
-                  - yarn
-                  - yarn lint
-          - step:
-              name: Test
-              caches:
-                - nodeall
-                - nodelandingpage
-                - nodecms
-                - nodeconfig
-                - nodeui
-                - yarn
-              script:
-                  - yarn
-                  - yarn test
-
 definitions:
+  steps:
+    - step: &setup-cache
+        name: Build and test
+        caches:
+          - nodeall
+          - nodelandingpage
+          - nodecms
+          - nodeconfig
+          - nodeui
+          - yarn
   caches:
     nodeall: ./node_modules
     nodelandingpage: ./apps/landing-page/node_modules
@@ -49,3 +18,25 @@ definitions:
     nodeconfig: ./packages/config/node_modules
     nodeui: ./packages/ui/node_modules
     yarn: /usr/local/share/.cache/yarn
+
+pipelines:
+    default:
+        - parallel:
+          - step:
+              <<: *setup-cache
+              name: Build
+              script:
+                  - yarn
+                  - yarn build
+          - step:
+              <<: *setup-cache
+              name: Lint
+              script:
+                  - yarn
+                  - yarn lint
+          - step:
+              <<: *setup-cache
+              name: Test
+              script:
+                  - yarn
+                  - yarn test
